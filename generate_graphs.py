@@ -1,6 +1,15 @@
+import os
 import matplotlib.pyplot as plt
 import mysql.connector
-import os
+
+# Crear el directorio si no existe
+def ensure_directory_exists(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+# Directorio donde se guardarán las gráficas
+graph_dir = 'static/graficas'
+ensure_directory_exists(graph_dir)
 
 # Conectar a la base de datos
 db = mysql.connector.connect(
@@ -39,7 +48,7 @@ def plot_experiencia_general(labels, values):
     plt.title('Distribución de la Experiencia General', fontsize=14)
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
-    plt.savefig('static/graficas/experiencia_general.png', bbox_inches='tight')
+    plt.savefig(os.path.join(graph_dir, 'experiencia_general.png'), bbox_inches='tight')
     plt.close()
 
 # Crear la gráfica de satisfacción con la atención
@@ -47,7 +56,7 @@ def plot_satisfaccion_atencion(labels, values):
     plt.figure(figsize=(10, 6))
     plt.pie(values, labels=labels, autopct='%1.1f%%', colors=['#66c2a5', '#fc8d62', '#8da0cb', '#e78ac3'])
     plt.title('Satisfacción con la Atención', fontsize=14)
-    plt.savefig('static/graficas/satisfaccion_atencion.png', bbox_inches='tight')
+    plt.savefig(os.path.join(graph_dir, 'satisfaccion_atencion.png'), bbox_inches='tight')
     plt.close()
 
 # Crear la gráfica de relación calidad-precio
@@ -55,7 +64,7 @@ def plot_calidad_precio(labels, values):
     plt.figure(figsize=(10, 6))
     plt.pie(values, labels=labels, autopct='%1.1f%%', colors=['#1b9e77', '#d95f02', '#7570b3', '#e7298a'])
     plt.title('Relación Calidad-Precio', fontsize=14)
-    plt.savefig('static/graficas/calidad_precio.png', bbox_inches='tight')
+    plt.savefig(os.path.join(graph_dir, 'calidad_precio.png'), bbox_inches='tight')
     plt.close()
 
 # Crear la gráfica de recomendación
@@ -63,7 +72,7 @@ def plot_recomendacion(labels, values):
     plt.figure(figsize=(10, 6))
     plt.pie(values, labels=labels, autopct='%1.1f%%', colors=['#66c2a5', '#fc8d62', '#8da0cb', '#e78ac3'])
     plt.title('Recomendación del Producto', fontsize=14)
-    plt.savefig('static/graficas/recomendacion.png', bbox_inches='tight')
+    plt.savefig(os.path.join(graph_dir, 'recomendacion.png'), bbox_inches='tight')
     plt.close()
 
 # Extraer datos y crear gráficos

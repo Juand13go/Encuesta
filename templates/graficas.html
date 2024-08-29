@@ -24,17 +24,7 @@
             text-align: center;
         }
         
-        .container h1::after {
-            content: '';
-            width: 85px;
-            height: 4px;
-            border-radius: 3px;
-            background: #04BD7D;
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+
         
         
 
@@ -74,13 +64,17 @@
     <div class="container">
         <h1>Gráficas Generadas</h1>
         <section>
-            <img src="{{ url_for('static', filename='calidad_precio.png') }}" alt="Gráfica calidad-precio">
-            <img src="{{ url_for('static', filename='experiencia_general.png') }}" alt="Gráfica experiencia general">
-            <img src="{{ url_for('static', filename='satisfaccion_atencion.png') }}" alt="Gráfica satisfaccion atencion">
-            <img src="{{ url_for('static', filename='recomendacion.png') }}" alt="Gráfica recomendación">
+            <img src="{{ url_for('static', filename='graficas/satisfaccion_atencion.png') }}" alt="Satisfacción con la Atención">
+            <img src="{{ url_for('static', filename='graficas/calidad_precio.png') }}" alt="Relación Calidad-Precio">
+            <img src="{{ url_for('static', filename='graficas/recomendacion.png') }}" alt="Recomendación del Producto">
         </section>        
-        <a href="{{ url_for('index') }}">
+        <a href="{{ url_for('thank_you') }}">
             <button style="cursor: pointer;">Volver</button>
+        </a>
+    
+        <!-- Botón para volver a la página de inicio -->
+        <a href="{{ url_for('index') }}">
+            <button style="cursor: pointer;">Volver a página principal</button>
         </a>
     </div>
 </body>
