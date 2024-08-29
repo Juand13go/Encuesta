@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficas</title>
+    <style>
+        body {
+            background-color: #D0D0D0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            width: 80%;
+            height: 100%;
+            max-width: 900px;
+            background-color: #2C2F35;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .container h1::after {
+            content: '';
+            width: 85px;
+            height: 4px;
+            border-radius: 3px;
+            background: #04BD7D;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        
+
+        h1 {
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            
+        }
+        img {
+            max-width: 33%;
+            height: auto;
+            margin: 10px 10px;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+        }
+        button{
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 18px;
+            display: inline-block;
+            background-color: #04BD7D;
+            text-align: center;
+            height: 100%;
+            padding: 15px 70px 15px 70px;
+            margin: 30px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 1px 2px 4px rgba(0,0,0,.5);
+        }
+        button:hover {
+            background-color: #038d62;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gráficas Generadas</h1>
+        <section>
+            <img src="{{ url_for('static', filename='calidad_precio.png') }}" alt="Gráfica calidad-precio">
+            <img src="{{ url_for('static', filename='experiencia_general.png') }}" alt="Gráfica experiencia general">
+            <img src="{{ url_for('static', filename='satisfaccion_atencion.png') }}" alt="Gráfica satisfaccion atencion">
+            <img src="{{ url_for('static', filename='recomendacion.png') }}" alt="Gráfica recomendación">
+        </section>        
+        <a href="{{ url_for('index') }}">
+            <button style="cursor: pointer;">Volver</button>
+        </a>
+    </div>
+</body>
+</html>
+
+
+
